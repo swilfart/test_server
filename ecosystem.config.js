@@ -7,7 +7,7 @@ module.exports = {
     production: {
       user: 'ubuntu',
       host: 'ec2-35-180-100-112.eu-west-3.compute.amazonaws.com',
-      key: '~/.ssh/tutorial-2.pem',
+      key: '~/.ssh/swilfart-keypair.pem',
       ref: 'origin/master',
       repo: 'git@github.com:swilfart/test_server.git',
       path: '/home/ubuntu/test_server',
