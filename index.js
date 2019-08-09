@@ -5,12 +5,12 @@ const app = express();
 var db;
 
 var config = {
-      "USER"    : "",
-      "PASS"    : "",
-      "HOST"    : "ec2-15-185-45-197.me-south-1.compute.amazonaws.com"
-      "PORT"    : "27017",
-      "DATABASE" : "swilfart-db"
-    };
+ "USER":"",
+ "PASS":"",
+ "HOST":"ec2-15-185-45-197.me-south-1.compute.amazonaws.com",
+ "PORT":"27017",
+ "DATABASE":"swilfart-db"
+};
 
 var dbPath  = "mongodb://"+config.USER + ":"+
     config.PASS + "@"+
