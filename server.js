@@ -1,6 +1,7 @@
 var http = require('http');
 var mongoose = require('mongoose');
 var express = require('express');
+var apiRouter = require('./Routes/Router');
 const app = express();
 var db;
 
@@ -18,30 +19,36 @@ var dbPath  = "mongodb://"+config.USER + ":"+
     config.PORT + "/"+
     config.DATABASE;
 
-var standardGreeting = 'Hello World!';
+//var standardGreeting = 'Hello World!';
 
-var greetingSchema = mongoose.Schema({
-  sentence: String
-}); 
-var Greeting= mongoose.model('Greeting', greetingSchema);
+//var greetingSchema = mongoose.Schema(
+//	{
+//	 	sentence: String
+//	},
+//	{
+//		collection: 'Greetings'
+//	}
+//); 
 
-db = mongoose.connect(dbPath);
+//var Greeting= mongoose.model('Greeting', greetingSchema);
+
+db = mongoose.connect(dbPath,{useNewUrlParser: true});
 
 mongoose.connection.once('open', function() {
-  var greeting;
-  Greeting.find( function(err, greetings){
-   if( !greetings ){     
-      greeting = new Greeting({ sentence: standardGreeting }); 
-      greeting.save();
-    } 
-  }); 
+  console.log("DB connection OK"); 
 });
 
-app.get('/', function(req, res){
-  Greeting.findOne(function (err, greeting) {
-    res.send(greeting.sentence);
-  });
-});
+//app.get('/api/', function(req,res){
+//  res.send('API is running');
+//});
+
+//app.get('/api/greeting', function(req, res){
+//  Greeting.findOne(function (err, greeting) {
+//     res.send(greeting.sentence);
+//  });
+//});
+
+app.use('/', apiRouter);
 
 app.use(function(err, req, res, next){
   if (req.xhr) {
