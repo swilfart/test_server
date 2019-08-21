@@ -5,11 +5,11 @@ const app = express();
 var db;
 
 var config = {
- "USER":"",
- "PASS":"",
- "HOST":"ec2-15-185-45-197.me-south-1.compute.amazonaws.com",
+ "USER":"user",
+ "PASS":"user123",
+ "HOST":"127.0.0.1",
  "PORT":"27017",
- "DATABASE":"swilfart-db"
+ "DATABASE":"test"
 };
 
 var dbPath  = "mongodb://"+config.USER + ":"+
@@ -53,8 +53,8 @@ app.use(function(err, req, res, next){
 });
 
 console.log('starting the Express (NodeJS) Web server');
-app.listen(8080);
-console.log('Webserver is listening on port 8080');
+app.listen(3000);
+console.log('Webserver is listening on port 3000');
 
 //app.use(express.static('public'))
 //app.listen(3000, () => console.log('Server running on port 3000'))
