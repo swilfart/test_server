@@ -19,6 +19,9 @@ var dbPath  = "mongodb://"+config.USER + ":"+
     config.PORT + "/"+
     config.DATABASE;
 
+app.set('views', './Views');
+app.set('view engine', 'pug');
+
 //var standardGreeting = 'Hello World!';
 
 //var greetingSchema = mongoose.Schema(
