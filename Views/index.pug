@@ -3,3 +3,9 @@ html
     title= title
   body
     h1= message
+    
+    form(method='POST' action='/api/greeting')
+          div.form-group
+            label(for='greeting') Text:
+            input#greeting.form-control(type='text', placeholder='input your greeting' name='greeting')
+          button.btn.btn-primary(type='submit') Sign up

@@ -1,6 +1,7 @@
 var http = require('http');
 var mongoose = require('mongoose');
 var express = require('express');
+var bodyParser = require('body-parser');
 var apiRouter = require('./Routes/Router');
 const app = express();
 var db;
@@ -21,6 +22,9 @@ var dbPath  = "mongodb://"+config.USER + ":"+
 
 app.set('views', './Views');
 app.set('view engine', 'pug');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //var standardGreeting = 'Hello World!';
 

@@ -8,4 +8,6 @@ router.get('/api/', function(req, res){
 
 router.get('/api/greeting/', greeting_controller.greeting_get);
 
+router.post('/api/greeting/', greeting_controller.greeting_post);
+
 module.exports = router;
